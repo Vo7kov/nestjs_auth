@@ -1,0 +1,11 @@
+{
+  "singleQuote": true,
+  "endOfLine": "lf",
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "printWidth": 80,
+  "plugins": ["prettier-plugin-organize-imports"]
+}
