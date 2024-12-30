@@ -21,7 +21,11 @@ export class UsersService {
   }
 
   async findAll() {
-    return await this.prisma.user.findMany();
+    const users = await this.prisma.user.findMany();
+
+    return {
+      users: users.map((user) => this.normalize(user)),
+    };
   }
 
   async findOne(id: string) {

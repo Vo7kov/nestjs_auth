@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersService } from './users.service';
@@ -20,6 +21,7 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
+  @Roles('admin')
   @Get()
   findAll() {
     return this.usersService.findAll();
@@ -35,6 +37,7 @@ export class UsersController {
     return this.usersService.update(id, updateUserDto);
   }
 
+  @Roles('admin')
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
